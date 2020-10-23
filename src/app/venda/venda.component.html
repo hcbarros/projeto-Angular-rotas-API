@@ -1,0 +1,56 @@
+<app-layout>
+
+  <div class="card main">
+      <div class="card-body">
+        <h3 class="card-title">Venda</h3>
+        <div class="row">
+          <div class="form-group col-lg-12">
+            <label for="cliente"class="control-label">Nome do cliente:</label>
+
+            <select [(ngModel)]="cliente" class="form-control">
+              <option [ngValue]="null">Selecione</option>
+              <option *ngFor="let cliente of listaCliente" [ngValue]="cliente">{{cliente.nome}}</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary buttons" (click)="pesquisar()">Pesquisar</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Codigo</th>
+                  <th>Data</th>
+                  <th>Nome do cliente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let venda of listaVenda">
+                  <th><input type="radio" name="selecionado" (change)="selecionar(venda)"/></th>
+                  <th>{{venda.codigo}}</th>
+                  <td>{{venda.data | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{venda.cliente.nome}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary buttons" (click)="incluir()">Incluir</button>
+            <button type="button" class="btn btn-primary buttons" (click)="remover()">Excluir</button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+</app-layout>

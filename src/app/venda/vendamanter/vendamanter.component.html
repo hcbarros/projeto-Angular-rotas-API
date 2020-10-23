@@ -1,0 +1,84 @@
+<app-layout>
+
+  <div class="card main">
+      <div class="card-body">
+        <h3 class="card-title">Venda - Incluir</h3>
+        <div class="row">
+          <div class="form-group col-lg-9">
+              <label for="cliente"class="control-label">Cliente:</label>
+              <select [(ngModel)]="venda.cliente" class="form-control">
+                  <option [ngValue]="null">Selecione</option>
+                  <option *ngFor="let cliente of listaCliente" [ngValue]="cliente">{{cliente.nome}}</option>
+              </select>
+          </div>
+          <div class="form-group col-lg-3">
+              <label for="data"class="control-label">Data:</label>
+              <input type="date" class="form-control" [(ngModel)]="venda.data" />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Adicionar Produto</h5>
+            <div class="row">
+              <div class="form-group col-lg-6">
+                  <label for="produto"class="control-label">Produto:</label>
+                  <select [(ngModel)]="vendaProduto.produto" class="form-control">
+                      <option *ngFor="let produto of listaProduto" [ngValue]="produto">{{produto.nome}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-lg-6">
+                  <label for="quantidade"class="control-label">Quantidade:</label>
+                  <input type="number" class="form-control" [(ngModel)]="vendaProduto.quantidade" />
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                  <button type="button" class="btn btn-primary add" (click)="adicionar()">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Quantidade</th>
+                      <th>Valor unitário</th>
+                      <th>Valor total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let vendaProduto of venda.listaVendaItem">
+                      <th>{{vendaProduto.produto.nome}}</th>
+                      <td>{{vendaProduto.quantidade}}</td>
+                      <td>R$ {{vendaProduto.produto.valor}}</td>
+                      <td>R$ {{vendaProduto.quantidade*vendaProduto.produto.valor}}</td>
+                      <th><a id="trash" (click)="removerProduto(vendaProduto)">
+                          <img height="18" src="../../../assets/delete.png"></a></th>
+                    </tr>
+                    <tr>
+                      <th *ngIf="this.vendaValorTotal > 0">Total de toda a venda: R$ {{vendaValorTotal}}</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary buttons" (click)="incluir()">Incluir</button>
+            <button type="button" class="btn btn-primary buttons" (click)="voltar()">Voltar</button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</app-layout>
