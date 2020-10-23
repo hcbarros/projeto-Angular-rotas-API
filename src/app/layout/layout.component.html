@@ -1,0 +1,42 @@
+<div class="container main">
+
+  <div class="row navRow">
+      <div class="col-lg-12">
+          <!-- head -->
+          <ul class="nav">
+              <li fxLayout="row wrap" fxLayoutGap="14vw" fxLayoutAlign="flex-start">
+                 <a class="nav-link disabled navTitle" href="#" tabindex="-1" aria-disabled="true">Sistema de vendas</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="row separator"></div>
+
+  <div class="row layoutBody">
+      <div class="col-2">
+
+          <ul class="nav flex-column">
+
+              <li class="nav-item">
+                <a class="nav-link links" routerLink="/">Produto</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link links" routerLink="/cliente">Cliente</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link links" routerLink="/venda">Venda</a>
+              </li>
+
+          </ul>
+
+      </div>
+
+      <div class="col-10 content">
+          <ng-content></ng-content>
+      </div>
+  </div>
+
+</div>

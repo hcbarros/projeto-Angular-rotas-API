@@ -1,0 +1,41 @@
+
+.navRow {
+    background-color: #DADFED;
+    border: solid 2px #475993;
+}
+
+.navTitle {
+    color: #475993;
+    font-size: 3vw;
+}
+
+.main {
+    background-image: linear-gradient(to right,white, #F6B002 , #F6B002);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.54vw;
+}
+
+.content {
+    opacity: 0.8;
+}
+
+img {
+    height: 65%;
+    width: 17vw;
+    margin-top: 6%;
+}
+
+.links {
+    color: #475993;
+}
+
+.layoutBody {
+    border-left: solid 2px #F6B002;
+    border-bottom: solid 2px #F6B002;
+}
+
+.separator {
+    border-left: solid 2px #F6B002;
+    height: 20px;
+    width: 100%;
+}

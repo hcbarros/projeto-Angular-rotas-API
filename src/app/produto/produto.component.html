@@ -1,0 +1,58 @@
+<app-layout>
+  <div class="card main">
+      <div class="card-body">
+        <h3 class="card-title">Produto</h3>
+
+        <div class="row">
+          <div class="form-group col-12">
+            <label for="nome"class="control-label">Nome:</label>
+            <input type="text" class="form-control" [(ngModel)]="produto.nome"  />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn btn-primary buttons" (click)="pesquisar()" >Pesquisar</button>
+          </div>
+        </div>
+
+        <!--Linha tabela-->
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                  <th>Observação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let produto of listaProduto">
+                  <th><input type="radio" name="selecionado" (change)="selecionar(produto)"/></th>
+                  <th>{{produto.codigo}}</th>
+                  <td>{{produto.nome}}</td>
+                  <td>{{produto.descricao}}</td>
+                  <td>{{produto.valor}}</td>
+                  <td>{{produto.observacao}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!--Linha botao incluir-->
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary buttons" (click)="incluir()">Incluir</button>
+            <button type="button" class="btn btn-primary buttons" (click)="alterar()">Alterar</button>
+            <button type="button" class="btn btn-primary buttons" (click)="remover()">Excluir</button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</app-layout>
